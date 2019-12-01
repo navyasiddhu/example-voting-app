@@ -9,6 +9,7 @@ option_a = os.getenv('OPTION_A', "Cats")
 option_b = os.getenv('OPTION_B', "Dogs")
 message = os.getenv('MESSAGE', "{} vs {}".format(option_a, option_b))
 hostname = socket.gethostname()
+print (message)
 
 app = Flask(__name__)
 
