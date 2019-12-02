@@ -6,19 +6,17 @@ spec:
   hosts:
   - "*"
   gateways:
-  - voter-gateway
+  - vote-gateway
   http:
   - match:
     - uri:
-        exact: /
-    - uri:
         exact: /vote
     - uri:
-        exact: /login
-    - uri:
-        prefix: /api/v1/products
+        prefix: /static/*
     route:
     - destination:
         host: vote-app
         port:
           number: 8080
+
+
