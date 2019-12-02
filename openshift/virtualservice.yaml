@@ -1,0 +1,24 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: basic-voting-vc
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - voter-gateway
+  http:
+  - match:
+    - uri:
+        exact: /
+    - uri:
+        exact: /vote
+    - uri:
+        exact: /login
+    - uri:
+        prefix: /api/v1/products
+    route:
+    - destination:
+        host: vote-app
+        port:
+          number: 8080
